@@ -12,46 +12,54 @@ class _DemoItem extends State<DemoItem> {
     return new Container(
       child: new Card(
           child: new FlatButton(
-            onPressed: () {
-              print("点我点我");
-              Toast.show("鉴权失败！", context, duration: Toast.LENGTH_LONG,
-                  gravity: Toast.CENTER);
-            },
-            child: new Row(
-                new Image(),
-                new Padding(
-                  padding:
-                  new EdgeInsets.only(left: 0, right: 20, top: 20, bottom: 20),
-                  child: new Column(
+              onPressed: () {
+                print("点我点我");
+                Toast.show("鉴权失败！", context,
+                    duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+              },
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                    left: 10, right: 10, top: 10, bottom: 10),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      new Container(
-                        child: new Text("这是一个列表",
-                            style: TextStyle(color: Colors.red, fontSize: 14),
-                            maxLines: 3,
-                            overflow: TextOverflow.ellipsis),
-                        alignment: Alignment.topLeft,
-                        margin: new EdgeInsets.only(top: 0, bottom: 0),
+                      Image(
+                        image: NetworkImage(
+                            "http://pybfgwxok.bkt.clouddn.com/briefly.png"),
+                        fit: BoxFit.cover,
+                        width: 70,
+                        height: 70,
                       ),
-                      new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      new Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          _getBottomItem(Icons.star, "赵赵"),
-                          _getBottomItem(Icons.subject, "皮皮"),
-                          _getBottomItem(Icons.link, "葛葛")
+                          new Container(
+                            child: new Text("这是一个列表",
+                                style:
+                                    TextStyle(color: Colors.black, fontSize: 16),
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis),
+                            alignment: Alignment.topLeft,
+                            margin: new EdgeInsets.only(top: 0, bottom: 20),
+                          ),
+                          new Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              _getBottomItem(Icons.star, "赵赵"),
+                              _getBottomItem(Icons.subject, "皮皮"),
+                              _getBottomItem(Icons.link, "葛葛")
+                            ],
+                          )
                         ],
-                      )
-                    ],
-                  ),
-                )),
-          )
-
-      ),
+                      ),
+                      Text("83",style: TextStyle(color: Colors.red,fontSize: 18)),
+                    ]),
+              ))),
     );
   }
 
   _getBottomItem(IconData icon, String text) {
-    return new Expanded(
-      flex: 1,
+    return new Container(
       child: new Center(
         child: new Row(
           mainAxisAlignment: MainAxisAlignment.start,
